@@ -1,0 +1,8 @@
+
+ _ _ _ SQL Server _ _ _
+-----------------------
+Servidor: ouvicidadev3server.database.windows.net
+Login: MyBDIAdmin
+Senha: chDolC,Mir$6Y20(
+
+_______________________
