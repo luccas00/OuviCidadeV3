@@ -76,8 +76,8 @@ namespace OuviCidadeV3.Controllers
 
             if (noticia != null)
             {
-                string secretaria = Program.Admin.Secretaria == null ? "NULL" : Program.Admin.Secretaria.Id;
-                string sql = $"INSERT INTO Noticia ([ID], [Titulo], [Texto], [ProprietarioID], [SecretariaId], [DataCriacao]) VALUES ('{ManifestacaoController.GenerateRandomString(4)}', '{noticia.Titulo}', '{noticia.Texto}', '{Program.Admin.ID}', '{secretaria}', '{DateTime.Now}')";
+                string secretaria = Program.Admin.Secretaria == null ? "NULL" : "'" + Program.Admin.Secretaria.Id + "'";
+                string sql = $"INSERT INTO Noticia ([ID], [Titulo], [Texto], [ProprietarioID], [SecretariaId], [DataCriacao]) VALUES ('{ManifestacaoController.GenerateRandomString(4)}', '{noticia.Titulo}', '{noticia.Texto}', '{Program.Admin.ID}', {secretaria}, '{DateTime.Now}')";
 
                 await _context.Database.ExecuteSqlRawAsync(sql);
 
