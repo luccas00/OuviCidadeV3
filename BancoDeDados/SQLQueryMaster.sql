@@ -100,7 +100,7 @@
 	('4', 'Educação')
 
 	INSERT INTO Noticia ([ID], [Titulo], [Texto], [ProprietarioID], [SecretariaId], [DataCriacao]) VALUES 
-	('0', 'Noticia 1', 'Minha primeira Noticia !', '000', '0', '2024-02-04')
+	('1', 'Noticia 2', 'Minha Segunda Noticia !', '000', '0', '2024-02-05')
 
 	INSERT INTO Resposta([DataCriacao], [ID], [Protocolo], [Texto]) VALUES
 	('2024-02-04', '000', '000', '')
@@ -128,7 +128,7 @@
 
 	select * from Secretaria 
 
-	Select * from Noticia
+	select * from Noticia ORDER BY DataCriacao DESC
 
 	Select * from Manifestacao WHERE DataResposta IS NOT NULL
 
@@ -146,6 +146,8 @@
 	Select * from Manifestacao
 
 	SELECT * FROM Resposta
+
+	Delete from Manifestacao where Protocolo = '855424'
 
 	Update Admin 
 	Set SecretKey = '79c22475-66f9-4bd7-abac-2951082c15f4'
@@ -181,3 +183,7 @@
 
 	INSERT INTO Admin ([ID], [Nome], [Email], [Telefone], [Login], [Senha], [SecretKey], [Endereco], [DataNascimento], [SecretariaId], [Ativo]) VALUES 
 	('999', '999', '999', '999', '999', 'CwszEfYeg1MgomopIsU+HA==', '5b3038db-1b27-4aee-8e00-1eb8c6a74713', 'SYSTEM', 07/02/2024 18:32:00, NULL, 1)
+
+	UPDATE Resposta SET Texto = '', DataCriacao = '' WHERE Protocolo = '001'
+
+	select * from resposta

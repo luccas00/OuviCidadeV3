@@ -280,18 +280,28 @@ namespace OuviCidadeV3.Controllers
 
             var usuario = await _context.Cidadao.FromSqlRaw(sql).ToListAsync();
 
-            string secret = usuario.FirstOrDefault().SecretKey;
-            string senhaCriptografada = usuario.FirstOrDefault().Senha;
-
-            if (usuario.Count > 0 && usuario != null && VerifyPassword(Senha, senhaCriptografada, secret))
+            if (usuario != null && usuario.Count > 0)
             {
-                Program.Cidadao = usuario.FirstOrDefault();
-                return RedirectToAction("Logado", new { id = usuario.FirstOrDefault().CPF });
+                string secret = usuario.FirstOrDefault().SecretKey;
+
+                string senhaCriptografada = usuario.FirstOrDefault().Senha;
+
+                if (usuario.Count > 0 && usuario != null && VerifyPassword(Senha, senhaCriptografada, secret))
+                {
+                    Program.Cidadao = usuario.FirstOrDefault();
+                    return RedirectToAction("Logado", new { id = usuario.FirstOrDefault().CPF });
+                }
+                else
+                {
+                    return RedirectToAction("Negado");
+                }
+
             }
             else
             {
                 return RedirectToAction("Negado");
             }
+
         }
 
         public static string EncryptPassword(string password, string key)
