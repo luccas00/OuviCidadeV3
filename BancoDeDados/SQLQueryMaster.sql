@@ -143,7 +143,7 @@
 
 	Select * from Noticia
 
-	Select * from Manifestacao
+	Select * from Manifestacao Where SecretariaId = '1'
 
 	SELECT * FROM Resposta
 
@@ -184,6 +184,6 @@
 	INSERT INTO Admin ([ID], [Nome], [Email], [Telefone], [Login], [Senha], [SecretKey], [Endereco], [DataNascimento], [SecretariaId], [Ativo]) VALUES 
 	('999', '999', '999', '999', '999', 'CwszEfYeg1MgomopIsU+HA==', '5b3038db-1b27-4aee-8e00-1eb8c6a74713', 'SYSTEM', 07/02/2024 18:32:00, NULL, 1)
 
-	UPDATE Resposta SET Texto = '', DataCriacao = '' WHERE Protocolo = '001'
+	UPDATE Resposta SET Texto = '' WHERE Protocolo = '001'
 
 	select * from resposta
